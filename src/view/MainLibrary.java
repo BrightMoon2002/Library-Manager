@@ -48,20 +48,7 @@ public class MainLibrary {
             int choice = inputChoice.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Enter the Student Name:");
-                    Scanner inputName = new Scanner(System.in);
-                    String name = inputName.nextLine();
-                    System.out.println("Enter the Student code " + name);
-                    Scanner inputCode = new Scanner(System.in);
-                    String code = inputCode.nextLine();
-                    System.out.println("Enter the DoB of Student " + name);
-                    Scanner inputDoB = new Scanner(System.in);
-                    String dOB = inputDoB.nextLine();
-                    System.out.println("Enter the CLass of Student" + name);
-                    Scanner inputClass = new Scanner(System.in);
-                    String classOfStudent = inputClass.nextLine();
-                    Student student = new Student(name, code, dOB, classOfStudent);
-                    managerLibrary.addStudent(student);
+                    managerLibrary.addStudent(creatStudent());
                     managerLibrary.showAllStudentList();
                     break;
                 case 2:
@@ -90,21 +77,55 @@ public class MainLibrary {
                     managerLibrary.searchStudentById(codeS);
                     break;
                 case 3:
-                    System.out.println("Enter the Name of Book:");
-                    Scanner inputNameOfBook = new Scanner(System.in);
-                    String nameB = inputNameOfBook.nextLine();
-                    System.out.println("Enter the Code of Book");
-                    Scanner inputCodeOfBook =  new Scanner(System.in);
-                    String codeB = inputCodeOfBook.nextLine();
-                    System.out.println("Enter the Type of Book");
-                    Scanner inputKindOfBook = new Scanner(System.in);
-                    String kindB = inputKindOfBook.nextLine();
-                    Book book = new Book(codeB, nameB, kindB);
-                    managerLibrary.addBook(book);
+                    managerLibrary.addBook(creatNewBook());
                     managerLibrary.showAllShowBookList();
+                    break;;
+
+                case 4:
+                    managerLibrary.getStudentArrayList().set(managerLibrary.getStudentArrayList().indexOf(managerLibrary.searchStudentById(inputCodeOfStudent())), creatStudent());
+                    break;
+                case 5:
 
             }
         }
+    }
+
+    private static String inputCodeOfStudent() {
+        System.out.println("Enter the code of Student you want to change:");
+        Scanner inputCodeOfStudent = new Scanner(System.in);
+        String codeS = inputCodeOfStudent.nextLine();
+        return codeS;
+    }
+
+    private static Book creatNewBook() {
+        System.out.println("Enter the Name of Book:");
+        Scanner inputNameOfBook = new Scanner(System.in);
+        String nameB = inputNameOfBook.nextLine();
+        System.out.println("Enter the Code of Book");
+        Scanner inputCodeOfBook =  new Scanner(System.in);
+        String codeB = inputCodeOfBook.nextLine();
+        System.out.println("Enter the Type of Book");
+        Scanner inputKindOfBook = new Scanner(System.in);
+        String kindB = inputKindOfBook.nextLine();
+        Book book = new Book(codeB, nameB, kindB);
+        return book;
+    }
+
+    private static Student creatStudent() {
+        System.out.println("Enter the Student Name:");
+        Scanner inputName = new Scanner(System.in);
+        String name = inputName.nextLine();
+        System.out.println("Enter the Student code " + name);
+        Scanner inputCode = new Scanner(System.in);
+        String code = inputCode.nextLine();
+        System.out.println("Enter the DoB of Student " + name);
+        Scanner inputDoB = new Scanner(System.in);
+        String dOB = inputDoB.nextLine();
+        System.out.println("Enter the CLass of Student" + name);
+        Scanner inputClass = new Scanner(System.in);
+        String classOfStudent = inputClass.nextLine();
+        Student student = new Student(name, code, dOB, classOfStudent);
+        return student;
     }
 }
 
