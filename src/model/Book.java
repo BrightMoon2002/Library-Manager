@@ -4,7 +4,7 @@ public class Book {
     private String codeOfBook;
     private String nameOfBook;
     private String typeOfBook;
-    private boolean status = true;
+    private boolean status;
 
     public String getCodeOfBook() {
         return codeOfBook;
@@ -18,6 +18,7 @@ public class Book {
         this.codeOfBook = codeOfBook;
         this.nameOfBook = nameOfBook;
         this.typeOfBook = typeOfBook;
+        this.status = true;
     }
 
     public Book(String codeOfBook, String nameOfBook, String typeOfBook, boolean status) {
@@ -26,6 +27,7 @@ public class Book {
         this.typeOfBook = typeOfBook;
         this.status = status;
     }
+
 
     public Book() {
     }
@@ -44,5 +46,15 @@ public class Book {
 
     public void setTypeOfBook(String typeOfBook) {
         this.typeOfBook = typeOfBook;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "codeOfBook='" + codeOfBook + '\'' +
+                ", nameOfBook='" + nameOfBook + '\'' +
+                ", typeOfBook='" + typeOfBook + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

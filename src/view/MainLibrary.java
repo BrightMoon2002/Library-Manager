@@ -20,10 +20,11 @@ public class MainLibrary {
         ArrayList<Student> studentArrayList = new ArrayList<>();
         ManagerLibrary managerLibrary = new ManagerLibrary(cardArrayList, bookArrayList, studentArrayList);
 
+        menuManager(managerLibrary);
 
     }
 
-    public void MenuManager(ManagerLibrary managerLibrary) {
+    public static void menuManager(ManagerLibrary managerLibrary) {
         while (true) {
             System.out.println("Menu:");
             System.out.println("1. Add student");
@@ -51,7 +52,7 @@ public class MainLibrary {
                     Scanner inputName = new Scanner(System.in);
                     String name = inputName.nextLine();
                     System.out.println("Enter the Student code " + name);
-                    Scanner inputCode =  new Scanner(System.in);
+                    Scanner inputCode = new Scanner(System.in);
                     String code = inputCode.nextLine();
                     System.out.println("Enter the DoB of Student " + name);
                     Scanner inputDoB = new Scanner(System.in);
@@ -61,6 +62,7 @@ public class MainLibrary {
                     String classOfStudent = inputClass.nextLine();
                     Student student = new Student(name, code, dOB, classOfStudent);
                     managerLibrary.addStudent(student);
+                    managerLibrary.showAllStudentList();
                     break;
                 case 2:
                     System.out.println("enter the code of Student:");
@@ -69,7 +71,7 @@ public class MainLibrary {
                     Student studentCheck = managerLibrary.searchStudentById(codeS);
                     if (studentCheck != null) {
                         System.out.println("Enter the card");
-                        Scanner inputCard =  new Scanner(System.in);
+                        Scanner inputCard = new Scanner(System.in);
                         String card = inputCard.nextLine();
                         System.out.println("Enter the day borrow");
                         System.out.println("Enter the year:");
@@ -82,11 +84,27 @@ public class MainLibrary {
                         LocalDate dayBorrow = LocalDate.of(year, month, day);
                         Card cardNew = new Card(studentCheck);
                         managerLibrary.getCardArrayList().add(cardNew);
+                    } else {
+                        System.out.println("Cant find student");
                     }
                     managerLibrary.searchStudentById(codeS);
+                    break;
+                case 3:
+                    System.out.println("Enter the Name of Book:");
+                    Scanner inputNameOfBook = new Scanner(System.in);
+                    String nameB = inputNameOfBook.nextLine();
+                    System.out.println("Enter the Code of Book");
+                    Scanner inputCodeOfBook =  new Scanner(System.in);
+                    String codeB = inputCodeOfBook.nextLine();
+                    System.out.println("Enter the Type of Book");
+                    Scanner inputKindOfBook = new Scanner(System.in);
+                    String kindB = inputKindOfBook.nextLine();
+                    Book book = new Book(codeB, nameB, kindB);
+                    managerLibrary.addBook(book);
+                    managerLibrary.showAllShowBookList();
 
             }
         }
     }
 }
-}
+

@@ -66,6 +66,14 @@ public class Card {
         this.book = book;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     @Override
     public String toString() {
         return "Card{" +

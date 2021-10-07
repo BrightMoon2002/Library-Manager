@@ -4,6 +4,7 @@ import model.Book;
 import model.Card;
 import model.Student;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ManagerLibrary {
@@ -109,7 +110,7 @@ public class ManagerLibrary {
 
     }
 
-    public Book searchTypeOfBook (String code) {
+    public Book searchBook (String code) {
         Book book = null;
         for (int i = 0; i < bookArrayList.size(); i++) {
             if (bookArrayList.get(i).getCodeOfBook().equals(code)) {
@@ -141,4 +142,28 @@ public class ManagerLibrary {
         }
         return  card;
     }
+
+    public LocalDate checkDateOfBook(int index, int indexBookInCard) {
+        LocalDate dateOfBook;
+        switch (bookArrayList.get(index).getTypeOfBook()) {
+            case "Romantic":
+                dateOfBook = cardArrayList.get(indexBookInCard).getDayBorrow().plusDays(7);
+                break;
+            case "Programming":
+                dateOfBook = cardArrayList.get(indexBookInCard).getDayBorrow().plusDays(8);
+                break;
+            case "Comic":
+                dateOfBook = cardArrayList.get(indexBookInCard).getDayBorrow().plusDays(9);
+                break;
+            case "Fantasy":
+                dateOfBook = cardArrayList.get(indexBookInCard).getDayBorrow().plusDays(10);
+                break;
+            default:
+                dateOfBook = cardArrayList.get(indexBookInCard).getDayBorrow().plusDays(5);
+                break;
+
+        }
+        return dateOfBook;
+    }
+
 }
