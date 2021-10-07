@@ -4,8 +4,6 @@ import control.ManagerLibrary;
 import model.Book;
 import model.Card;
 import model.Student;
-
-import javax.sound.midi.Soundbank;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -170,40 +168,33 @@ public class MainLibrary {
         int month = number.nextInt();
         System.out.println("Enter the day");
         int day = number.nextInt();
-        LocalDate dayBorrow = LocalDate.of(year, month, day);
-        return dayBorrow;
+        return LocalDate.of(year, month, day);
     }
 
-    private static void searchStudentById(ManagerLibrary managerLibrary) {
-        System.out.println(managerLibrary.searchStudentById(inputCodeOfStudent()));
-    }
 
     private static Card CreatNewCard(Student studentCheck) {
         String codeOfCard = inputCodeOfCard();
+        return new Card(studentCheck, codeOfCard);
 
-        Card cardNew = new Card(studentCheck, codeOfCard);
-        return cardNew;
     }
 
     private static String inputCodeOfCard() {
         System.out.println("Enter the code of card");
         Scanner inputCard = new Scanner(System.in);
-        String codeOfCard = inputCard.nextLine();
-        return codeOfCard;
+        return inputCard.nextLine();
     }
 
     private static String inputCodeOfBook() {
         System.out.println("Enter the code of book");
         Scanner inputCodeOfBook = new Scanner(System.in);
-        String codeOfBook = inputCodeOfBook.nextLine();
-        return codeOfBook;
+       return inputCodeOfBook.nextLine();
+
     }
 
     private static String inputCodeOfStudent() {
         System.out.println("Enter the code of Student you want to change:");
         Scanner inputCodeOfStudent = new Scanner(System.in);
-        String codeS = inputCodeOfStudent.nextLine();
-        return codeS;
+        return inputCodeOfStudent.nextLine();
     }
 
     private static Book creatNewBook() {
@@ -216,8 +207,7 @@ public class MainLibrary {
         System.out.println("Enter the Type of Book");
         Scanner inputKindOfBook = new Scanner(System.in);
         String kindB = inputKindOfBook.nextLine();
-        Book book = new Book(codeB, nameB, kindB);
-        return book;
+        return new Book(codeB, nameB, kindB);
     }
 
     private static Student creatStudent() {
@@ -233,8 +223,7 @@ public class MainLibrary {
         System.out.println("Enter the CLass of Student" + name);
         Scanner inputClass = new Scanner(System.in);
         String classOfStudent = inputClass.nextLine();
-        Student student = new Student(name, code, dOB, classOfStudent);
-        return student;
+        return new Student(name, code, dOB, classOfStudent);
     }
 }
 
