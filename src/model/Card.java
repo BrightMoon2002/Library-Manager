@@ -16,8 +16,9 @@ public class Card {
         this.student = student;
     }
 
-    public Card(Student student) {
+    public Card(Student student, String codeOfCard) {
         this.student = student;
+        this.codeOfCard = codeOfCard;
     }
 
     public Card(String codeOfCard, LocalDate dayBorrow, LocalDate datePay) {
@@ -81,6 +82,7 @@ public class Card {
                 ", dayBorrow=" + dayBorrow +
                 ", datePay=" + datePay +
                 ", book=" + book +
+                ", student=" + student +
                 '}';
     }
 }
