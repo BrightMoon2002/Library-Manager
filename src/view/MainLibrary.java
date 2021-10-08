@@ -41,7 +41,8 @@ public class MainLibrary {
             System.out.println("11. show student list");
             System.out.println("12. show card list");
             System.out.println("13. Student find and borrow any books");
-            System.out.println("14. List of date book need to pay in end of the month:");
+            System.out.println("14. Student pay books");
+            System.out.println("15. List of date book need to pay in end of the month:");
             System.out.println("0. Exit");
 
             Scanner inputChoice = new Scanner(System.in);
@@ -91,12 +92,22 @@ public class MainLibrary {
                     BorrowBook(managerLibrary);
                     break;
                 case 14:
+                    PayBook(managerLibrary);
+                case 15:
                     showALlBookPayAtEndOfMonth(managerLibrary);
                     break;
                 case 0:
                     System.exit(0);
             }
         }
+    }
+
+    private static void PayBook(ManagerLibrary managerLibrary) {
+        Card card = managerLibrary.searchCardByCodeOfCard(inputCodeOfCard());
+        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).getBook().setStatus(true);
+        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setBook(null);
+        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDatePay(null);
+        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDayBorrow(null);
     }
 
     private static void showALlBookPayAtEndOfMonth(ManagerLibrary managerLibrary) {

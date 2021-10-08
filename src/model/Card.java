@@ -9,6 +9,10 @@ public class Card {
     private Book book;
     private Student student;
 
+    public LocalDate getExp(){
+        return dayBorrow.plusMonths(1);
+    }
+
     public Card(String codeOfCard, LocalDate dayBorrow, LocalDate datePay, Student student) {
         this.codeOfCard = codeOfCard;
         this.dayBorrow = dayBorrow;

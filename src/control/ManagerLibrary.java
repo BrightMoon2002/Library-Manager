@@ -34,7 +34,6 @@ public class ManagerLibrary {
     public void setCardArrayList(ArrayList<Card> cardArrayList) {
         this.cardArrayList = cardArrayList;
     }
-
     public ArrayList<Book> getBookArrayList() {
         return bookArrayList;
     }
