@@ -104,10 +104,15 @@ public class MainLibrary {
 
     private static void PayBook(ManagerLibrary managerLibrary) {
         Card card = managerLibrary.searchCardByCodeOfCard(inputCodeOfCard());
-        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).getBook().setStatus(true);
-        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setBook(null);
-        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDatePay(null);
-        managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDayBorrow(null);
+        if ( managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).getBook() != null) {
+            managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).getBook().setStatus(true);
+            managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setBook(null);
+            managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDatePay(null);
+            managerLibrary.getCardArrayList().get(managerLibrary.getCardArrayList().indexOf(card)).setDayBorrow(null);
+        } else {
+            System.out.println("you dont have book to pay");
+        }
+
     }
 
     private static void showALlBookPayAtEndOfMonth(ManagerLibrary managerLibrary) {
