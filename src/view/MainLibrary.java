@@ -50,15 +50,12 @@ public class MainLibrary {
             switch (choice) {
                 case 1:
                     managerLibrary.addStudent(creatStudent());
-                    managerLibrary.showAllStudentList();
                     break;
                 case 2:
                     addCard(managerLibrary);
-                    managerLibrary.showAllCardList();
                     break;
                 case 3:
                     managerLibrary.addBook(creatNewBook());
-                    managerLibrary.showAllShowBookList();
                     break;
 
                 case 4:
