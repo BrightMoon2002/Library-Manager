@@ -149,6 +149,7 @@ public class MainLibrary {
     private static void BorrowBook(ManagerLibrary managerLibrary) {
         Card card = managerLibrary.searchCardByCodeOfCard(inputCodeOfCard());
         if (card != null) {
+            managerLibrary.showAllShowBookList();
             Book book = managerLibrary.searchBook(inputCodeOfBook());
             if (book != null) {
                 if (book.isStatus()) {
