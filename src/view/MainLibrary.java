@@ -92,6 +92,9 @@ public class MainLibrary {
                     break;
                 case 14:
                     showALlBookPayAtEndOfMonth(managerLibrary);
+                    break;
+                case 0:
+                    System.exit(0);
             }
         }
     }
