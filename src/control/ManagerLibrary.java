@@ -119,6 +119,15 @@ public class ManagerLibrary {
         }
         return book;
     }
+    public void searBookByName (String name) {
+        Book book = null;
+        for (int i = 0; i < bookArrayList.size(); i++) {
+            if (bookArrayList.get(i).getNameOfBook().equalsIgnoreCase(name)) {
+                book = getBookArrayList().get(i);
+                System.out.println(book);
+            }
+        }
+    }
 
     public Student searchStudentById (String codeOfStudent) {
         Student student = null;
